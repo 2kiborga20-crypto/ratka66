@@ -77,9 +77,10 @@ async def pair(message: Message):
     token = secrets.token_urlsafe(32)
 
     devices[device_id] = {
-        "token": token,
-        "owner": message.from_user.id
-    }
+    "device_id": device_id,
+    "token": token,
+    "owner": message.from_user.id
+}
     queues[device_id] = []
     pending.pop(code, None)
 
